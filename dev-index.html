@@ -6,7 +6,7 @@
     
     
 <title>Valentine's Day</title>
-<link rel="stylesheet" href="vstyle.css">
+<link rel="stylesheet" href="dev-vstyle.css">
 
     
     
@@ -16,21 +16,21 @@
     
     
     
-    <div class="grid-test">
+    <div class="mainHeader">
         <div>Para Raquel Oliveira:</div>
         
         <div>Be my valentine???</div>
         
         <div id="brasil-flag"> 
-            <img src="1200px-Flag_of_Brazil.svg.png" alt="Small picture of Brazilian flag." height="160" width="220">
+            <img src="images/1200px-Flag_of_Brazil.svg.png" alt="Small picture of Brazilian flag." height="160" width="220">
         </div>
         
         <div> 
-            <img src="minecraftheart.png" alt="A picture of a heart from Minecraft in between both flags." height="100" width="100">
+            <img src="images/minecraftheart.png" alt="A picture of a heart from Minecraft in between both flags." height="100" width="100">
         </div>
         
         <div id="philippines-flag">
-            <img src="phflag.jpg" alt="Small picture of Filipino flag." height="160" width="220">
+            <img src="images/phflag.jpg" alt="Small picture of Filipino flag." height="160" width="220">
         </div>
         
     
@@ -40,15 +40,20 @@
     <div class="bodywrapper"> 
 
         <div class="sim">
-            <div id="sim1">Sim</a></div>
-            <div id="sim2">Ok</a></div>
+            <a style="text-decoration:none" href="dev-simresponse.html">
+            <div id="sim1">Sim</div>
+            </a>
+            <a style="text-decoration:none" href="dev-simresponse.html">
+            <div id="sim2">Sim</div>
+            </a>
+        
         </div>
     
     
         
     
 
-    <div class="buttons">
+    <div class="firstValentineButtons">
                 <div>Sim tambem</div>
                 <div>Acho que sim</div>
                 <div>Talvez :/</div>
@@ -62,9 +67,9 @@
     
     </div>
 
-    <div class="picture-box">
+    <div class="weather-box">
 
-        <div class="images"><img src="images/rio-de-janeiro-1963744_1280.jpg" alt="Beautiful view from a high point overlooking Flamengo Beach and Sugerloaf Mountain in Rio de Janeiro." height = 450 width = 700 ></div>
+        <div class="sceneImage"><img src="images/rio-de-janeiro-1963744_1280.jpg" alt="Beautiful view from a high point overlooking Flamengo Beach and Sugerloaf Mountain in Rio de Janeiro." height = 450 width = 700 ></div>
         
         <div class="card" style="visibility: hidden">
             <h1 class="cityDisplay">Rio de Janeiro</h1>
@@ -75,13 +80,14 @@
         
         </div>
         
-        <div class="images"><img src="images/Palm-trees-Cebu.jpg" alt="Tranquil beach in Cebu, Philippines, with a deep blue ocean and fluffy clouds." height= 450 width = 700 ></div>
+        <div class="sceneImage"><img src="images/Palm-trees-Cebu.jpg" alt="Tranquil beach in Cebu, Philippines, with a deep blue ocean and fluffy clouds." height= 450 width = 700 ></div>
         
         
         
         <div></div>
         <form class="weatherForm">
-            <input type="text" class="cityInput" placeholder="Digite a cidade">
+            
+            <input type="text" class="cityInput" id="citySearchInput" placeholder="Digite a cidade">
             <button type="submit">Como está o tempo?</button>
         
         
@@ -98,7 +104,7 @@
     
     
 
-    <script src="index.js">
+    <script src="dev-index.js">
         
     </script>
 

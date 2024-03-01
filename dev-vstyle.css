@@ -1,5 +1,5 @@
 
-.grid-test{
+.mainHeader{
 	display: grid;
 	max-width: 100%;
 	grid-template-columns: 25% 50% 10% 5% 10%;
@@ -11,7 +11,7 @@
 
 }
 
-.grid-test div{
+.mainHeader div{
 	display: grid;
 	background: rgb(133, 16, 16);
 	padding: 5%;
@@ -36,29 +36,6 @@ img {
 
 }
 
-	#brasil-flag{
-		
-	
-	
-	}
-
-	#philippines-flag{
-
-
-	}
-
-	.images img {
-	
-	
-	box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
-	border: 0.2rem solid #0f0f0f;
-	border-radius: 50%;
-	
-	
-	}
-
-
-
 .bodywrapper {
 
 	
@@ -71,64 +48,60 @@ img {
 	background: rgb(103,38,28);
 	background: linear-gradient(90deg, rgba(103,38,28,1) 0%, rgba(126,41,28,1) 27%, rgba(153,48,22,1) 50%, rgba(120,47,20,1) 81%, rgba(154,36,16,1) 100%);
 
+}
+
+	.bodywrapper .sim {
+
+		display: grid;
+		grid-template-columns: 50% 50%;
+		column-gap: 1.3rem;
+		margin-right: 0.8vw;
+		font-size: 5vw;
+		text-align: center;
+		padding: 1vw;
+		font-family: 'Courier New', Courier, monospace;
+		font-weight: 600;
+	
 
 }
 
-.bodywrapper .sim {
+			#sim1 {
 
-	display: grid;
-	grid-template-columns: 50% 50%;
-	column-gap: 1.3rem;
-	margin-right: 0.8vw;
-	font-size: 5vw;
-	text-align: center;
-	padding: 1vw;
-	font-family: 'Courier New', Courier, monospace;
-	font-weight: 600;
-	
+				color: #002776;
+				background: #86bc1b;
+				border: 0.4vw solid rgb(254, 221, 0);
+				box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
+			}
 
+				#sim1:hover{
 
-}
+				background: #618814;
+			
+				}
+			
+			
+			#sim2 {
 
-
-
-	#sim1 {
-
-		color: #002776;
-		background: #86bc1b;
-		border: 0.4vw solid rgb(254, 221, 0);
-		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
-	}
-
-		#sim1:hover{
-
-		background: #618814;
-	
-		}
-	
-	
-	#sim2 {
-
-		color: rgb(191, 13, 62);
-		background: rgb(0, 50, 160);
-		border: 0.4vw solid rgb(254, 209, 65);
-		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
+				color: rgb(191, 13, 62);
+				background: rgb(0, 50, 160);
+				border: 0.4vw solid rgb(254, 209, 65);
+				box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 
 
-	}
+			}
 
-		#sim2:hover{
+				#sim2:hover{
 
-			background: rgb(1, 29, 88);
+					background: rgb(1, 29, 88);
 
-		}
+				}
 
 
 
 
 
 
-.buttons {
+.firstValentineButtons {
 	
 	
 	display: grid;
@@ -144,29 +117,28 @@ img {
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: 600;
 	
-
-
 }
 
-.buttons div {
+	.firstValentineButtons div {
 
-	background: rgb(0,156,59);
-	text-align: center;
-	font-size: 5vw;
-	border: 0.3vw solid rgb(254, 209, 65);
-	box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
-	
-	
-}
-
-	.buttons div:hover{
-
-		background: rgb(2, 105, 42);
-
-
+		background: rgb(0,156,59);
+		text-align: center;
+		font-size: 5vw;
+		border: 0.3vw solid rgb(254, 209, 65);
+		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
+		
+		
 	}
 
-.picture-box{
+		.firstValentineButtons div:hover{
+
+			background: rgb(2, 105, 42);
+
+
+		}
+
+
+.weather-box{
 
 	display: grid;
 	
@@ -184,64 +156,70 @@ img {
 
 }
 
-	
-
-	
-		
-
-
-		.weatherForm {
-
-		text-align: center;
-		
-		
-
-
-
-	}
-
-		.cityInput {
-
-
-			padding: 0.5dvh;
-			font-size: 1rem;
-			border: 2px solid rgb(128, 128, 128);
-			border-radius: 1rem;
-			margin: 0.3rem;
-
-		}
-
-		button[type="submit"]{
-
-			padding: 0.5dvh;
-			font-size: 1.5rem;
-			font-weight: bold;
-			border: 2px solid rgb(254, 209, 65);
-			margin: 0.3rem;
-			background-color: rgb(0,156,59);
-			cursor: pointer;
-
-		}
-
-		button[type="submit"]:hover{
-
-			background-color: rgb(4, 121, 49);
-
-		}
-
-	.picture-box .images {
+	.weatherForm {
 
 		text-align: center;
 		
 		
 	}
 
-	.picture-box div{
+			.cityInput {
 
-		margin-top: 1rem;
 
-	}
+				padding: 0.5dvh;
+				font-size: 1rem;
+				border: 2px solid rgb(128, 128, 128);
+				border-radius: 1rem;
+				margin: 0.3rem;
 
+			}
+
+			button[type="submit"]{
+
+				padding: 0.5dvh;
+				font-size: 1.5rem;
+				font-weight: bold;
+				border: 2px solid rgb(254, 209, 65);
+				margin: 0.3rem;
+				background-color: rgb(0,156,59);
+				cursor: pointer;
+
+			}
+
+			button[type="submit"]:hover{
+
+				background-color: rgb(4, 121, 49);
+
+			}
+
+	
+	
+	
+	
+	.weather-box .sceneImage {
+
+		text-align: center;
+		
+		}
+
+		.weather-box div{
+
+			margin-top: 1rem;
+
+		}
+
+		.sceneImage img {
+	
+	
+			box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
+			border: 0.2rem solid #0f0f0f;
+			border-radius: 50%;
+			
+			
+			
+			}
+	
+	
 	.card {
 		display: grid;
 		max-width: 100%;
