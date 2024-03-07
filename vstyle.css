@@ -3,24 +3,26 @@
 	display: grid;
 	max-width: 100%;
 	grid-template-columns: 25% 50% 10% 5% 10%;
-	font-size: 1vw;
-	padding: 0.2vw;
-	border: 0.5vw solid rgb(254, 221, 0);
-	margin: 0.5vw;
+	background: #00af54;
+	font-size: 1dvw;
+	padding: 0.2dvw;
+	border: 0.3dvw solid #fbaf00;
+	margin: 0.5dvw;
+	
 	
 
 }
 
 .mainHeader div{
 	display: grid;
-	background: rgb(133, 16, 16);
+	
 	padding: 5%;
 	place-items: center;
 	text-align: center;
 	font-size: 300%;
 	font-family: 'Courier New', Courier, monospace;
 	font-weight: 600;
-	color:  #FFCCCB;
+	color: #002776;
 	
 	
 }
@@ -42,11 +44,11 @@ img {
 	min-height: auto;
 	height: 70dvh;
 	max-width: 100%;
-	border: 0.8vw solid rgb(189, 58, 38);
-	padding: 1vw;
-	margin-top: 1vw;
-	background: rgb(103,38,28);
-	background: linear-gradient(90deg, rgba(103,38,28,1) 0%, rgba(126,41,28,1) 27%, rgba(153,48,22,1) 50%, rgba(120,47,20,1) 81%, rgba(154,36,16,1) 100%);
+	border: 0.3dvw solid #00af54;
+	padding: 1dvw;
+	margin-top: 5dvh;
+	background: #00af54;
+	
 
 }
 
@@ -55,10 +57,10 @@ img {
 		display: grid;
 		grid-template-columns: 50% 50%;
 		column-gap: 1.3rem;
-		margin-right: 0.8vw;
-		font-size: 5vw;
+		margin-right: 0.8dvw;
+		font-size: 5dvw;
 		text-align: center;
-		padding: 1vw;
+		padding: 1dvw;
 		font-family: 'Courier New', Courier, monospace;
 		font-weight: 600;
 	
@@ -68,23 +70,23 @@ img {
 			#sim1 {
 
 				color: #002776;
-				background: #86bc1b;
-				border: 0.4vw solid rgb(254, 221, 0);
+				background: rgb(255, 214, 57);
+				border: 0.2dvw solid #007cbe;
 				box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 			}
 
 				#sim1:hover{
 
-				background: #618814;
+				background: rgb(137, 118, 43);
 			
 				}
 			
 			
 			#sim2 {
 
-				color: rgb(191, 13, 62);
-				background: rgb(0, 50, 160);
-				border: 0.4vw solid rgb(254, 209, 65);
+				color: #002776;
+				background: rgb(255, 214, 57);
+				border: 0.2dvw solid #007cbe;
 				box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 
 
@@ -92,7 +94,7 @@ img {
 
 				#sim2:hover{
 
-					background: rgb(1, 29, 88);
+					background: rgb(137, 118, 43);
 
 				}
 
@@ -110,6 +112,7 @@ img {
 	row-gap: 2vw;
 	column-gap: 1vw;
 	padding: 0.5vw;
+	margin-top: 5dvh;
 	min-height: auto;
 	height: 45dvh;
 	max-width: 100%;
@@ -120,11 +123,13 @@ img {
 }
 
 	.firstValentineButtons div {
-
-		background: rgb(0,156,59);
+		display: grid;
+		background: rgb(255, 214, 57);
+		color: #002776;
 		text-align: center;
-		font-size: 5vw;
-		border: 0.3vw solid rgb(254, 209, 65);
+		align-items: center;
+		font-size: 3dvw;
+		border: 0.3vw solid #007cbe;
 		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 		
 		
@@ -132,7 +137,7 @@ img {
 
 		.firstValentineButtons div:hover{
 
-			background: rgb(2, 105, 42);
+			background: rgb(137, 118, 43);
 
 
 		}
@@ -141,13 +146,13 @@ img {
 .weather-box{
 
 	display: grid;
-	
+	margin-top: 5dvh;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	row-gap: 1rem;
 	column-gap: 1rem;
-	background: rgb(103,38,28);
-	border: 0.8vw solid rgb(189, 58, 38);
+	background: #007cbe;
+	border: 0.2dvw solid #ffd639;
 	min-height: auto;
 	min-width: auto;
 	max-width: 100%;
@@ -179,7 +184,7 @@ img {
 				padding: 0.5dvh;
 				font-size: 1.5rem;
 				font-weight: bold;
-				border: 2px solid rgb(254, 209, 65);
+				border: 2px solid #ffd639;
 				margin: 0.3rem;
 				background-color: rgb(0,156,59);
 				cursor: pointer;
@@ -212,7 +217,7 @@ img {
 	
 	
 			box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
-			border: 0.2rem solid #0f0f0f;
+			border: 0.2rem solid #ffd639;
 			border-radius: 50%;
 			
 			
@@ -231,7 +236,7 @@ img {
 		background: linear-gradient(0deg, rgba(42,126,152,1) 31%, rgba(36,95,119,1) 69%);
 		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 		font-family: 'Courier New', Courier, monospace;
-		border: 0.5rem solid rgb(141, 53, 53);
+		border: 0.2rem solid #ffd639;
 		
 		
 	}
