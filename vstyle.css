@@ -112,9 +112,9 @@ img {
 	row-gap: 2vw;
 	column-gap: 1vw;
 	padding: 0.5vw;
-	margin-top: 5dvh;
+	margin-top: 3dvh;
 	min-height: auto;
-	height: 45dvh;
+	max-height: 45dvh;
 	max-width: 100%;
 	min-width: auto;
 	font-family: 'Courier New', Courier, monospace;
@@ -126,6 +126,7 @@ img {
 		display: grid;
 		background: rgb(255, 214, 57);
 		color: #002776;
+		min-height: 15rem;
 		text-align: center;
 		align-items: center;
 		font-size: 3dvw;
