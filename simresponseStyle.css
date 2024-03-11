@@ -16,11 +16,20 @@
         
     }
 
-    #placeholder{
+    #username{
         margin-right: 3dvw;
+        text-align: center;
 
 
     }
+
+
+        #user{
+            text-align: center;
+
+
+
+        }
 
     #clickerTitle{
         font-size: 43px;

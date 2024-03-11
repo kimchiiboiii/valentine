@@ -1,0 +1,91 @@
+
+
+#background{
+
+    display: grid;
+
+
+    width: 100%;
+    height: 100%;
+
+
+
+}
+
+
+
+
+    #bodywrapper{
+
+        display: grid;
+        justify-self: center;
+        margin-top: 15dvh;
+        width: 60%;
+        height: 50dvh;
+        background: darkblue;
+
+
+    }
+
+        .login-card{
+
+            display: grid;
+            justify-self: center;
+            align-self: center;
+            background: peru;
+            width: 50%;
+            height: 50%;
+
+
+
+        }
+
+            
+            form {
+
+                display: grid;
+                justify-content: center;
+                align-items: top;
+                margin-top: 5rem;
+
+            }
+        
+        
+                ul {
+                    
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+
+                }
+
+                    form li + li {
+
+                        margin-top: 0.5rem;
+
+
+                    }
+
+
+                    label {
+
+                        display: inline-block;
+                        width: 90px;
+                        text-align: center;
+
+
+                    }
+
+                    
+                    
+                    
+                    
+                        button{
+
+                                margin-top: 1rem;
+                                width: 100%;
+
+                            }
+
+                    

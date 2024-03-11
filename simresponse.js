@@ -1,5 +1,15 @@
 
 
+
+
+
+// figuring out how to save data in JS, want to make a user system.
+
+
+let getUserName = document.querySelector("#user");
+let userName = getUserName.textContent;
+localStorage.setItem("name", userName);
+
 let clickTotal = 0;
 
 
