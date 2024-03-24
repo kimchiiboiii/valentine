@@ -5,7 +5,7 @@
     
     display: flex;
     justify-content: center;
-    
+    background-color: gray;
     align-items: center;
     width: 100%;
     height: 20dvh;
@@ -26,12 +26,46 @@
 
 
 
+    #backgroundPicture::before {
+
+        content: ""; 
+        z-index: -1; 
+        position: inherit;
+        left: inherit;
+        top: inherit;
+        width: inherit;
+        height: inherit;
+        background-image: inherit;
+        background-size: cover;
+        
+        
+    }  #backgroundPicture {  
+        
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-image: url(../images/angry_background.webp);
+        background-size: 0 0;
+        position: absolute;
+        
+        
+
+
+
+    }
+
+
 #bodywrapper{
 
-
+    display: grid;
     width: 100%;
     height: 50dvh;
-
+    justify-items: center;
+    align-content: center;
+    
+    
+    
 
 
 
@@ -39,7 +73,19 @@
 }
 
 
-    #bodywrapper p{
+    
+
+.bodyContent{
+
+    width: 50%;
+    height: 100%;
+    background-color: gray;
+
+
+
+}
+
+    .bodyContent p{
 
         font-size: 3rem;
         text-align: center;
