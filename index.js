@@ -1,59 +1,33 @@
-
-
-
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
 const apiKey = "34b85c75e5b1e5845e4fd93d412ff953";
 
-
-
-
-
 weatherForm.addEventListener("submit", async Event => {
-
     Event.preventDefault();
-
     const city = cityInput.value;
-
-    if(city){
-        try{
+    if(city) {
+        try {
             const weatherData = await getWeatherData(city);
             displayWeatherInfo(weatherData);
-
-
-        }
-        catch(error){
+        } catch(error) {
             console.error(error);
-            displayError(error);
-
-
+            displayError(error); 
         }
-
-
-    }
-    else{
+    } else {
         displayError("Por favor, digite uma cidade.")
     }
 
 });
 
 async function getWeatherData(city){
-
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=pt&appid=${apiKey}`;
-
     const response = await fetch(apiUrl);
     console.log(response)
-
-    if(!response.ok){
+    if(!response.ok) {
         throw new Error("Could not fetch weather data");
-
     }
-
     return await response.json();
-
-
-
 }
 
 function displayWeatherInfo(data){
@@ -77,7 +51,6 @@ function displayWeatherInfo(data){
     descDisplay.textContent = description;
     weatherEmoji.textContent = getWeatherEmoji(id);
     
-    
     cityDisplay.classList.add("cityDisplay");
     tempDisplay.classList.add("tempDisplay");
     humidityDisplay.classList.add("humidityDisplay");
@@ -93,7 +66,6 @@ function displayWeatherInfo(data){
 }
 
 function getWeatherEmoji(weatherId){
-
     switch(true){
         case (weatherId >= 200 && weatherId < 300):
             return "⛈️🌩️";
@@ -115,18 +87,15 @@ function getWeatherEmoji(weatherId){
             return "🌥️☁️"
         default:
             return "🤔❓"
-
     }
-
-
 }
 
 function displayError(message){
-
+    
     const errorDisplay = document.createElement("p");
     errorDisplay.textContent = message;
     errorDisplay.classList.add("errorDisplay");
-
+    
     card.textContent = "";
     card.style.visibility = "visible";
     card.appendChild(errorDisplay);
