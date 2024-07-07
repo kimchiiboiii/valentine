@@ -7,7 +7,8 @@
     
 <title>Valentine's Day</title>
 <link rel="stylesheet" href="vstyle.css">
-
+<script src="https://unpkg.com/htmx.org@2.0.0" 
+integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
     
     
 </head>
@@ -55,7 +56,7 @@
 
     <div class="firstValentineButtons">
                 <div>Sim tambem</div>
-                <div>Acho que sim</div>
+                <div>Eu acho que sim</div>
                 <div>Talvez :/</div>
                 <div>Com certeza</div>
                 <div>Ta bom</div>
@@ -85,9 +86,9 @@
         
         
         <div></div>
-        <form class="weatherForm">
+        <form class="weatherForm"  hx-post="/get-weather" hx-trigger="submit" hx-target=".card *" hx-swap="outerHTML">
             
-            <input type="text" class="cityInput" id="citySearchInput" placeholder="Digite a cidade">
+            <input type="text" class="cityInput" id="citySearchInput" name="city" placeholder="Digite a cidade">
             <button type="submit">Como está o tempo?</button>
         
         
@@ -104,9 +105,9 @@
     
     
 
-    <script src="index.js">
+    <!-- <script src="index.js">
         
-    </script>
+    </script> -->
 
 
 </body>
