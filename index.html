@@ -85,7 +85,7 @@
         
         
         <div></div>
-        <form class="weatherForm"  hx-post="127.0.0.1:8080/get-weather" hx-trigger="submit" hx-target=".card" hx-swap="outerHTML">
+        <form class="weatherForm"  hx-post="http://127.0.0.1:8080/get-weather" hx-trigger="submit" hx-target=".card" hx-swap="outerHTML">
             
             <input type="text" class="cityInput" id="citySearchInput" name="city" placeholder="Digite a cidade">
             <button type="submit">Como está o tempo?</button>
