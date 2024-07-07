@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -25,7 +26,8 @@ type WeatherData struct {
 
 func getWeather(c *gin.Context) {
 	city := c.PostForm("city")
-	url := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&lang=pt&appid=%s&units=metric", city, apiKey)
+	encodedCity := url.QueryEscape(city) // Handling for cities with multiple words in the name
+	url := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&lang=pt&appid=%s&units=metric", encodedCity, apiKey)
 
 	resp, err := http.Get(url)
 	if err != nil {
@@ -46,13 +48,15 @@ func getWeather(c *gin.Context) {
 	}
 
 	resultHTML := fmt.Sprintf(`
-    <div class="card">
-        <h1>%s</h2>
-        <p>Temperature: %.2f°C</p>
-        <p>Humidity: %d%%</p>
-        <p>Description: %s</p>
-    </div>
-    `, weatherData.Name, weatherData.Main.Temp, weatherData.Main.Humidity, weatherData.Weather[0].Description)
+	<div class="card">
+	    <h1 class="cityDisplay">%s</h2>
+	    <p class="tempDisplay">%.2f°C</p>
+	    <p class="humidityDisplay">Umidade: %d%%</p>
+	    <p class="descDisplay">%s</p>
+		<p class="weatherEmoji">%s</p>
+	</div>
+	`, weatherData.Name, weatherData.Main.Temp, weatherData.Main.Humidity,
+		weatherData.Weather[0].Description, findWeatherEmoji(weatherData.Weather[0].ID))
 
 	c.Header("Content-Type", "text/html; charset=utf-8")
 	c.String(http.StatusOK, resultHTML)
@@ -61,12 +65,37 @@ func getWeather(c *gin.Context) {
 	// c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(resultHTML))
 }
 
+func findWeatherEmoji(weatherID int) string {
+	switch {
+	case weatherID >= 200 && weatherID < 300:
+		return "⛈️🌩️"
+	case weatherID >= 300 && weatherID < 400:
+		return "☔🌂"
+	case weatherID >= 500 && weatherID < 600:
+		return "☔🌧️"
+	case weatherID >= 600 && weatherID < 700:
+		return "🥶❄️"
+	case weatherID >= 700 && weatherID < 771:
+		return "🌫️🌫️"
+	case weatherID >= 771 && weatherID < 800:
+		return "🌪️🌪️"
+	case weatherID == 800:
+		return "🌞😎"
+	case weatherID >= 801 && weatherID < 803:
+		return "🌤️🌤️"
+	case weatherID >= 803 && weatherID <= 804:
+		return "🌥️☁️"
+	default:
+		return "🤔❓"
+	}
+}
+
 func main() {
 	router := gin.Default()
 
 	// CORS middleware
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://kimchiiboiii.github.io"},
+		AllowOrigins:     []string{"*"},
 		AllowMethods:     []string{"GET", "OPTIONS", "POST"},
 		AllowHeaders:     []string{"Origin", "Content-Type"},
 		AllowCredentials: true,

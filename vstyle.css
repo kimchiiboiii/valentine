@@ -236,13 +236,14 @@ img {
 		background: linear-gradient(0deg, rgba(42,126,152,1) 31%, rgba(36,95,119,1) 69%);
 		box-shadow: 1rem 1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2), 0.5rem 1rem 1rem 0 rgba(0, 0, 0, 0.19);
 		font-family: 'Courier New', Courier, monospace;
+		font-size: 1.5rem;
 		border: 0.5rem solid rgb(141, 53, 53);
 		
 		
 	}
 
 		h1.cityDisplay{
-			font-size: 3rem;
+			font-size: 4rem;
 			margin-top: 0;
 			margin-bottom: 0;
 			
@@ -258,7 +259,7 @@ img {
 
 		.tempDisplay{
 
-			font-size: 3rem;
+			font-size: 1.5rem;
 			margin-top: 0;
 			
 
