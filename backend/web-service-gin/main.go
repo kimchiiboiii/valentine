@@ -58,10 +58,10 @@ func getWeather(c *gin.Context) {
 	`, weatherData.Name, weatherData.Main.Temp, weatherData.Main.Humidity,
 		weatherData.Weather[0].Description, findWeatherEmoji(weatherData.Weather[0].ID))
 
-	c.Header("Content-Type", "text/html; charset=utf-8")
+	c.Writer.Header().Set("Content-Type", "text/html; charset=utf-8")
 	c.String(http.StatusOK, resultHTML)
-	// c.Writer.WriteHeader(http.StatusOK)
-	// c.Writer.WriteString(resultHTML)
+	c.Writer.WriteHeader(http.StatusOK)
+	c.Writer.WriteString(resultHTML)
 	// c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(resultHTML))
 }
 
@@ -102,7 +102,10 @@ func main() {
 	}))
 
 	router.OPTIONS("/get-weather", func(c *gin.Context) {
-		c.Status(http.StatusOK)
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Hx-Current-Url")
+		// c.Status(http.StatusOK)
 	})
 	router.POST("/get-weather", getWeather)
 	router.Run(":8080")
