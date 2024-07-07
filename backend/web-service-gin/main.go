@@ -95,9 +95,9 @@ func main() {
 
 	// CORS middleware
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*", "https://kimchiiboiii.github.io"},
+		AllowOrigins:     []string{"http://127.0.0.1:5500", "https://kimchiiboiii.github.io"},
 		AllowMethods:     []string{"GET", "OPTIONS", "POST"},
-		AllowHeaders:     []string{"Origin", "Content-Type"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Hx-Current-Url"},
 		AllowCredentials: true,
 	}))
 
