@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -45,27 +46,35 @@ func getWeather(c *gin.Context) {
 	}
 
 	resultHTML := fmt.Sprintf(`
-    <div id="weather-result">
-        <h2>Weather in %s</h2>
+    <div class="card">
+        <h1>%s</h2>
         <p>Temperature: %.2f°C</p>
         <p>Humidity: %d%%</p>
         <p>Description: %s</p>
     </div>
     `, weatherData.Name, weatherData.Main.Temp, weatherData.Main.Humidity, weatherData.Weather[0].Description)
 
-	c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(resultHTML))
+	c.Header("Content-Type", "text/html; charset=utf-8")
+	c.String(http.StatusOK, resultHTML)
+	// c.Writer.WriteHeader(http.StatusOK)
+	// c.Writer.WriteString(resultHTML)
+	// c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(resultHTML))
 }
 
 func main() {
 	router := gin.Default()
 
-	// // CORS middleware
-	// router.Use(cors.New(cors.Config{
-	// 	AllowOrigins: []string{"http://127.0.0.1:5500/index.html"},
-	// 	AllowMethods: []string{"GET", "POST"},
-	// 	AllowHeaders: []string{"Origin"},
-	// }))
+	// CORS middleware
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"https://kimchiiboiii.github.io"},
+		AllowMethods:     []string{"GET", "OPTIONS", "POST"},
+		AllowHeaders:     []string{"Origin", "Content-Type"},
+		AllowCredentials: true,
+	}))
 
+	router.OPTIONS("/get-weather", func(c *gin.Context) {
+		c.Status(http.StatusOK)
+	})
 	router.POST("/get-weather", getWeather)
 	router.Run(":8080")
 }
