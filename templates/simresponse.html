@@ -25,16 +25,17 @@
     
     </div>
     
-    
-    
-    
 
 
     <div class="clickerBody">
         <div class="clickerTopRow" id="progressHeart1">
             <img src="images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100">
         </div>
-        <button onclick="addClick()" class="clickerTopRow" id="clicker">Click Here</button>
+        
+        <button hx-post="/increase-opacity" hx-trigger="click" hx-include="[name='opacity']" 
+        hx-swap-oob="true" hx-swap="outerHTML" style="opacity: 0.25" class="clickerTopRow" id="clicker">Click Here</button>
+        <input type="hidden" name="opacity" id="opacityInput" value="0.25" hx-swap-oob="true">
+
         <div class="clickerTopRow" id="progressHeart2"><img src="images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100">
         </div>
         
@@ -44,6 +45,6 @@
     </div>
 </div>  
 
-<script src="simresponse.js"></script>
+<script src="htmx.min.js"></script>
 </body>
 </html>

@@ -61,7 +61,7 @@ func getWeather(c *gin.Context) {
 	c.Writer.Header().Set("Content-Type", "text/html; charset=utf-8")
 	c.String(http.StatusOK, resultHTML)
 	c.Writer.WriteHeader(http.StatusOK)
-	c.Writer.WriteString(resultHTML)
+	// c.Writer.WriteString(resultHTML)
 	// c.Data(http.StatusOK, "text/html; charset=utf-8", []byte(resultHTML))
 }
 
@@ -92,6 +92,11 @@ func findWeatherEmoji(weatherID int) string {
 
 func main() {
 	router := gin.Default()
+	router.LoadHTMLGlob("templates/*")
+
+	simresponse.RegisterClickerRoutes(router)
+
+	// Works fine using the live server, but getting CORS error when trying to post from github pages
 
 	// CORS middleware
 	router.Use(cors.New(cors.Config{
