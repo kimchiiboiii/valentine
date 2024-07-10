@@ -1,0 +1,16 @@
+<!-- HTML response for the simresponse clicker -->
+<!-- <link rel="stylesheet" href="../static/simresponseStyle.css"> -->
+
+<button hx-post="http://127.0.0.1:8080/increase-opacity" hx-trigger="click" hx-include="[name='opacity']" 
+hx-swap="outerHTML" style="opacity: {{ .opacity }}" class="clickerTopRow" id="clicker">Click Here</button>
+
+<h1 id="scoreKeep" hx-swap-oob="true">Score: <span id="clickCount">{{ .clickCount }}</span></h1>
+<input type="hidden" name="opacity" id="opacityInput" value="{{ .opacity }}">
+
+<div class="clickerTopRow" id="progressHeart1" hx-swap-oob="true">
+    <img src="../images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100" style="opacity: {{ .opacity }}">
+</div>
+
+<div class="clickerTopRow" id="progressHeart2" hx-swap-oob="true">
+    <img src="../images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100" style="opacity: {{ .opacity }}">
+</div>

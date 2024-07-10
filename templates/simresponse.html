@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sim!!</title>
-    <link rel="stylesheet" href="simresponseStyle.css">
+    <link rel="stylesheet" href="../static/simresponseStyle.css">
 
 
 </head>
@@ -27,24 +27,25 @@
     
 
 
-    <div class="clickerBody">
-        <div class="clickerTopRow" id="progressHeart1">
-            <img src="images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100">
+    <div class="clickerBody" id="clicker-container">
+        <div class="clickerTopRow" id="progressHeart1" hx-swap-oob="true">
+            <img src="../images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100" style="opacity: 0.25">
         </div>
         
-        <button hx-post="/increase-opacity" hx-trigger="click" hx-include="[name='opacity']" 
-        hx-swap-oob="true" hx-swap="outerHTML" style="opacity: 0.25" class="clickerTopRow" id="clicker">Click Here</button>
-        <input type="hidden" name="opacity" id="opacityInput" value="0.25" hx-swap-oob="true">
+        <button hx-post="http://127.0.0.1:8080/increase-opacity" hx-trigger="click" hx-include="[name='opacity']" 
+         hx-swap="outerHTML" style="opacity: 0.25" class="clickerTopRow" id="clicker">Click Here</button>
+        <input type="hidden" name="opacity" id="opacityInput" value="0.25">
 
-        <div class="clickerTopRow" id="progressHeart2"><img src="images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100">
+        <div class="clickerTopRow" id="progressHeart2" hx-swap-oob="true">
+            <img src="../images/minecraftheart.png" alt="A picture of a heart from Minecraft increasing in opacity as you click." height="100" width="100" style="opacity: 0.25">
         </div>
         
         <div></div>
-        <h1 id="scoreKeep">Score:</h1>
+        <h1 id="scoreKeep">Score: <span id="clickCount">0</span></h1>
     
     </div>
 </div>  
 
-<script src="htmx.min.js"></script>
+<script src="../htmx.min.js"></script>
 </body>
 </html>
