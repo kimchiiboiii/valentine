@@ -3,8 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"net/url"
+	"os"
 
 	simresponse "github.com/kimchiiboiii/valentine/backend"
 
@@ -12,7 +14,42 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const apiKey = "34b85c75e5b1e5845e4fd93d412ff953"
+var apiKey string
+
+func main() {
+
+	apiKey = os.Getenv("WEATHER_API_KEY")
+	log.Printf("API Key loaded: %s\n", apiKey)
+	if apiKey == "" {
+		fmt.Println("WEATHER_API_KEY environment variable not set")
+		return
+	}
+
+	router := gin.Default()
+	router.LoadHTMLGlob("templates/*")
+
+	simresponse.RegisterClickerRoutes(router)
+
+	// Works fine using the live server, but getting CORS error when trying to post from github pages
+
+	// CORS middleware
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://127.0.0.1:5500", "https://kimchiiboiii.github.io"},
+		AllowMethods:     []string{"GET", "OPTIONS", "POST"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Hx-Current-Url"},
+		AllowCredentials: true,
+	}))
+
+	router.OPTIONS("/get-weather", func(c *gin.Context) {
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Hx-Current-Url")
+		// c.Status(http.StatusOK)
+	})
+	router.POST("/get-weather", getWeather)
+	router.Run(":8080")
+
+}
 
 type WeatherData struct {
 	Name string `json:"name"`
@@ -29,6 +66,7 @@ type WeatherData struct {
 func getWeather(c *gin.Context) {
 	city := c.PostForm("city")
 	encodedCity := url.QueryEscape(city) // Handling for cities with multiple words in the name
+	log.Printf("API Key: %s\n", apiKey)
 	url := fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?q=%s&lang=pt&appid=%s&units=metric", encodedCity, apiKey)
 
 	resp, err := http.Get(url)
@@ -90,30 +128,4 @@ func findWeatherEmoji(weatherID int) string {
 	default:
 		return "🤔❓"
 	}
-}
-
-func main() {
-	router := gin.Default()
-	router.LoadHTMLGlob("templates/*")
-
-	simresponse.RegisterClickerRoutes(router)
-
-	// Works fine using the live server, but getting CORS error when trying to post from github pages
-
-	// CORS middleware
-	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://127.0.0.1:5500", "https://kimchiiboiii.github.io"},
-		AllowMethods:     []string{"GET", "OPTIONS", "POST"},
-		AllowHeaders:     []string{"Origin", "Content-Type", "Hx-Current-Url"},
-		AllowCredentials: true,
-	}))
-
-	router.OPTIONS("/get-weather", func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
-		c.Writer.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, Hx-Current-Url")
-		// c.Status(http.StatusOK)
-	})
-	router.POST("/get-weather", getWeather)
-	router.Run(":8080")
 }
