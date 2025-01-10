@@ -121,7 +121,8 @@ img {
 	
 }
 
-	.firstValentineButtons div {
+
+	.firstValentineButtons a {
 
 		display: grid;
 		place-items: center;

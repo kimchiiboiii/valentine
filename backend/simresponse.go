@@ -28,13 +28,27 @@ func handleClick(c *gin.Context) {
 		return
 	}
 	clickCount++
-	newOpacity := opacity + 0.3
-	if newOpacity > 1 {
-		newOpacity = 1
+	switch clickCount {
+	case 1:
+		opacity = 0.1
+	case 10:
+		opacity = 0.3
+	case 20:
+		opacity = 0.5
+	case 30:
+		opacity = 0.7
+	case 40:
+		opacity = 0.9
+	case 50:
+		opacity = 1
+	}
+
+	if opacity > 1 {
+		opacity = 1
 	}
 
 	c.HTML(http.StatusOK, "clicker_response.html", gin.H{
-		"opacity":    newOpacity,
+		"opacity":    opacity,
 		"clickCount": clickCount,
 	})
 }
